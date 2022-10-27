@@ -15,11 +15,11 @@ function App() {
           <h3 className="slack">Oluwasemilogo</h3>
         </div>
       </section>
-      <main>
+      <div className="hero-section">
         {links.map((link) => (
-          <Link key={link.id} name={link.name} link={link.link} id={link?.id} />
+          <Link key={link.id} name={link.name} link={link.link} id={link.id} />
         ))}
-      </main>
+      </div>
     </div>
   );
 }
