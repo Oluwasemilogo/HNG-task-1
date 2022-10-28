@@ -12,12 +12,35 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* width: max-content; */
 }
 .profile-image {
   border-radius: 50%;
   width: 88px;
   height: 88px;
+  display: block;
+}
+.show {
+  z-index: 2;
+  transition: all ease-in 100ms;
+}
+
+.hide {
+  z-index: -1;
+  transition: all ease-in 100ms;
+}
+.camera-container {
+  position: absolute;
+  border-radius: 50%;
+  height: 88px;
+  width: 88px;
+  background-color: rgba(52, 64, 84, 0.75);
+}
+
+.camera {
+  position: absolute;
+  top: 55px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .twitter-name {
   font-size: 20px;

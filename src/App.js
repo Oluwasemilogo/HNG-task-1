@@ -8,9 +8,11 @@ import Github from "./Assets/Icon.png";
 import links from "./database";
 import Link from "./components/Link";
 import Footer from "./components/Footer";
+import camera from "./Assets/camera.png";
 
 function App() {
   const [windowSize, setWindowSize] = useState(getWindowSize());
+  const [showCamera, setShowCamera] = useState(false);
 
   function getWindowSize() {
     const { innerWidth, innerHeight } = window;
@@ -39,7 +41,20 @@ function App() {
           />
         </div>
         <div className="image-container">
-          <img src={ProfileImg} alt="profile" className="profile-image" />
+          <img
+            src={ProfileImg}
+            alt="profile"
+            className="profile-image"
+            onMouseLeave={() => setShowCamera(false)}
+            onMouseEnter={() => setShowCamera(true)}
+          />
+          <div
+            className={`camera-container ${showCamera ? "show" : "hide"}`}
+            onMouseEnter={() => setShowCamera(true)}
+            onMouseLeave={() => setShowCamera(false)}
+          >
+            <img src={camera} alt="camera" className="camera" />
+          </div>
           <h3 className="twitter-name">_logoh</h3>
           <h3 className="slack">Oluwasemilogo</h3>
         </div>
