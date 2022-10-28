@@ -39,7 +39,7 @@ function App() {
           />
         </div>
         <div className="image-container">
-          <img src={ProfileImg} alt="profile Image" className="profile-image" />
+          <img src={ProfileImg} alt="profile" className="profile-image" />
           <h3 className="twitter-name">_logoh</h3>
           <h3 className="slack">Oluwasemilogo</h3>
         </div>
