@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import ProfileImg from "./Assets/profilePicture.jpg";
 import share from "./Assets/share.png";
@@ -9,11 +10,33 @@ import Link from "./components/Link";
 import Footer from "./components/Footer";
 
 function App() {
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+
+  function getWindowSize() {
+    const { innerWidth, innerHeight } = window;
+    return { innerWidth, innerHeight };
+  }
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
   return (
     <div className="App">
       <section className="profile-section">
         <div className="share-icon">
-          <img src={share} alt="share" />
+          <img
+            src={windowSize.innerWidth > 985 ? share : shareMobile}
+            alt="share"
+            className="share-icon-img"
+          />
         </div>
         <div className="image-container">
           <img src={ProfileImg} alt="profile Image" className="profile-image" />
