@@ -15,7 +15,7 @@ const Links = ({ name, link, id, redirect }) => {
           <h3 className="link-name">{name}</h3>
         </a>
       ) : (
-        <Link to={redirect} id={id} className="link__con">
+        <Link to={redirect} id={id} className="link-container">
           <h3 className="link-name">{name}</h3>
         </Link>
       )}
